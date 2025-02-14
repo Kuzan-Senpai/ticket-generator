@@ -9,7 +9,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #02191d;
     --foreground: #ededed;
   }
 }
@@ -18,4 +18,16 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.custom-select .ant-select-selector {
+  background-color: #08252b !important;
+  padding: 12px !important;
+  border-color: #07373F !important;
+  border-radius: 12px !important;
+  color: white !important;
+}
+
+.ant-card-body {
+  padding: 4px !important;
 }

@@ -3,6 +3,7 @@
 import { Card } from 'antd';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 const Ticket = () => {
     const [userData, setUserData] = useState({
@@ -31,6 +32,10 @@ const Ticket = () => {
 
 
 
+    const handleDownload = () => {
+        alert("Your ticket has been downloaded");
+    };
+
     return (
         <div className="w-full flex flex-col items-center gap-6 text-center relative">
             <div className="w-full max-w-lg px-4">
@@ -58,16 +63,15 @@ const Ticket = () => {
                         )}
                     </div>
 
-
                     <Card className="h-50 !bg-[#07333c] rounded-lg border !border-[#123d43] !text-white p-1">
                         <div className="grid grid-cols-2 gap-0 ">
                             <div className="h-[45px] p-1 border-r border-[#12464e] flex flex-col justify-center">
                                 <p className="text-xs opacity-50 whitespace-normal py-1">Enter your name</p>
                                 <p className="text-sm font-bold whitespace-normal py-1">{userData.name}</p>
                             </div>
-                            <div className="h-[45px] py-1 flex flex-col justify-center ">
+                            <div className="h-[45px] py-1 flex flex-col justify-center text-wrap">
                                 <p className="text-xs opacity-50 whitespace-normal py-1">Enter your email *</p>
-                                <p className="text-sm font-bold whitespace-normal">{userData.email}</p>
+                                <p className="text-sm font-bold whitespace-normal text-wrap">{userData.email}</p>
                             </div>
 
                             <div className="col-span-2 border-t border-[#12464e] py-1"></div>
@@ -95,6 +99,27 @@ const Ticket = () => {
                 <div className=' z-10 '>
                     <Image src="/Bar Code.png" alt="Barcode" width={236} height={68} className="" />
                 </div>
+            </div>
+
+            <div className="w-full flex flex-col sm:flex-row gap-7 py-8">
+                <Link href="/" className="flex-1">
+                    <div>
+                        <button
+                            className="w-full px-6 py-3 rounded-lg border border-[#23a0b5] text-white hover:bg-[#23a0b5]"
+                        >
+                            Book another ticket
+                        </button>
+                    </div>
+                </Link>
+
+                <Link href="/ticket" className="flex-1">
+                    <button
+                        className="w-full px-6 py-3 rounded-lg border border-[#23a0b5] text-white hover:bg-[#23a0b5]"
+                        onClick={handleDownload}
+                    >
+                        Download
+                    </button>
+                </Link>
             </div>
         </div>
     );

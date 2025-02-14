@@ -25,13 +25,14 @@ const Ticket = () => {
 
             const mergedData = { ...parsedProfile, ...parsedTicket };
             setUserData(mergedData);
+
+            // Clear localStorage after data is loaded
+            localStorage.removeItem("profileFormData");
+            localStorage.removeItem("ticketData");
         } else {
             console.warn("⚠️ No data found in localStorage.");
         }
     }, []);
-
-
-
     const handleDownload = () => {
         alert("Your ticket has been downloaded");
     };
